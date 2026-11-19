@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disciplinas | ZEUS GYM BODYFIT EXCLUSIVE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #08080d;
+    --panel: #14141e;
+    --violeta: #8b35ff;
+    --rosa: #ed38b9;
+    --celeste: #32d9ed;
+    --blanco: #fff;
+    --gris: #aaa9b7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ENCABEZADO */
+
+header {
+    min-height: 88px;
+    background: rgba(8,8,13,.97);
+    border-bottom: 1px solid rgba(255,255,255,.09);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    color: var(--rosa);
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    border: 1px solid rgba(255,255,255,.14);
+    padding: 11px 12px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.activo {
+    border-color: var(--rosa);
+    background: linear-gradient(120deg,rgba(139,53,255,.25),rgba(237,56,185,.18));
+}
+
+.menu-btn {
+    display: none;
+    color: white;
+    background: transparent;
+    border: 1px solid var(--violeta);
+    border-radius: 5px;
+    font-size: 24px;
+    padding: 5px 12px;
+    cursor: pointer;
+}
+
+/* PORTADA */
+
+.portada {
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    padding: 80px 9%;
+    background:
+    linear-gradient(90deg,rgba(8,8,13,.97),rgba(8,8,13,.58)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T7Saf-eHRKfVuPtiHNf2JjLWuJU9fRfvacwO5EVr9Jw7MXzFhX-JjNgz7O4Jp_qOe7siYOQQZbzso3bY_dLl1-OwqPhHMuK7THyDs6A2ivHQgtb7ANTBz6ck58zTP_JJMKRB-cU8sPj6qk=s1360-w1360-h1020-rw');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid rgba(237,56,185,.25);
+}
+
+.portada-contenido {
+    max-width: 780px;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: #ff7bd6;
+    border: 1px solid var(--rosa);
+    padding: 10px 16px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.portada h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(42px,7vw,76px);
+    line-height: 1.1;
+}
+
+.portada h1 span {
+    background: linear-gradient(90deg,var(--violeta),var(--rosa),var(--celeste));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.portada p {
+    color: #d1cfda;
+    max-width: 650px;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-top: 25px;
+}
+
+/* CONTENIDO */
+
+.contenedor {
+    width: 86%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.seccion {
+    padding: 85px 0;
+}
+
+.encabezado-centro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 45px;
+}
+
+.subtitulo {
+    color: var(--rosa);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.titulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(26px,4vw,39px);
+    line-height: 1.3;
+    margin-bottom: 18px;
+}
+
+.descripcion {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* CATEGORÍAS */
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.categorias a {
+    border: 1px solid rgba(255,255,255,.16);
+    padding: 12px 17px;
+    border-radius: 5px;
+    color: #ddd;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.categorias a:hover {
+    border-color: var(--rosa);
+    background: rgba(237,56,185,.13);
+}
+
+/* TARJETAS */
+
+.disciplinas-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 23px;
+}
+
+.disciplina {
+    background: linear-gradient(145deg,#191925,#101018);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .35s;
+}
+
+.disciplina:hover {
+    transform: translateY(-7px);
+    border-color: var(--rosa);
+    box-shadow: 0 12px 30px rgba(139,53,255,.14);
+}
+
+.disciplina-imagen {
+    height: 230px;
+    overflow: hidden;
+    background: #1b1b27;
+    position: relative;
+}
+
+.disciplina-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.disciplina:hover .disciplina-imagen img {
+    transform: scale(1.07);
+}
+
+.disciplina-contenido {
+    padding: 24px;
+}
+
+.numero {
+    color: var(--rosa);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.disciplina h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    margin: 12px 0;
+}
+
+.disciplina p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 17px;
+}
+
+.beneficio {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 15px;
+}
+
+.beneficio strong {
+    display: block;
+    color: var(--celeste);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+.beneficio span {
+    color: #d5d3df;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* SECCIÓN DESTACADA */
+
+.destacado {
+    background: #0e0e16;
+}
+
+.destacado-contenido {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.destacado-imagen {
+    height: 390px;
+    overflow: hidden;
+    border: 1px solid rgba(237,56,185,.35);
+    border-radius: 8px;
+}
+
+.destacado-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.destacado-texto p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 16px;
+}
+
+.lista {
+    list-style: none;
+    margin-top: 22px;
+}
+
+.lista li {
+    color: #dedce7;
+    font-size: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.lista li::before {
+    content: "✦";
+    color: var(--rosa);
+    margin-right: 12px;
+}
+
+/* INFORMACIÓN */
+
+.informacion {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.info-card {
+    background: #14141e;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 8px;
+    padding: 28px;
+}
+
+.info-card .icono {
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.info-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* LLAMADO A LA ACCIÓN */
+
+.banner {
+    padding: 85px 8%;
+    text-align: center;
+    background:
+    linear-gradient(rgba(8,8,13,.88),rgba(8,8,13,.94)),
+    url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1800&q=85');
+    background-size: cover;
+    background-position: center;
+}
+
+.banner h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(25px,4vw,39px);
+    margin-bottom: 18px;
+}
+
+.banner p {
+    color: #d1cfda;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 4px;
+    background: linear-gradient(100deg,var(--violeta),var(--rosa));
+    color: white;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.boton:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(237,56,185,.25);
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background: #050509;
+    padding: 40px 8% 25px;
+    border-top: 1px solid rgba(255,255,255,.09);
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.footer-logo h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+}
+
+.footer-logo p {
+    color: var(--rosa);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-size: 10px;
+    color: var(--gris);
+    font-weight: 700;
+}
+
+.footer-links a:hover {
+    color: var(--rosa);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,.09);
+    padding-top: 20px;
+    text-align: center;
+    color: #777785;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px) {
+    header { flex-wrap: wrap; }
+    nav { gap: 5px; }
+    nav a { font-size: 9px; padding: 9px; }
+}
+
+@media(max-width:850px) {
+    .menu-btn { display: block; }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding-top: 15px;
+    }
+
+    nav.mostrar { display: flex; }
+
+    nav a {
+        text-align: center;
+        padding: 13px;
+    }
+
+    .disciplinas-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .destacado-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .informacion {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:550px) {
+    .logo-area img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .logo-text { font-size: 15px; }
+
+    .contenedor { width: 90%; }
+
+    .seccion { padding: 65px 0; }
+
+    .disciplinas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .disciplina-imagen { height: 240px; }
+
+    .destacado-imagen { height: 280px; }
+
+    .footer-contenido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="../inicio/index.html" class="logo-area">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+        <div class="logo-text">
+            ZEUS GYM
+            <span>BODYFIT EXCLUSIVE</span>
+        </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+    <nav id="menu">
+        <a href="index.html">INICIO</a>
+        <a href="nosotros.html">NOSOTROS</a>
+        <a href="maquinas.html">MÁQUINAS</a>
+        <a href="disciplinas.html" class="activo">DISCIPLINAS</a>
+        <a href="entrenadores.html">ENTRENADORES</a>
+        <a href="membresias.html">MEMBRESÍAS</a>
+        <a href="horarios.html">HORARIOS</a>
+        <a href="galeria.html">GALERÍA</a>
+        <a href="contacto.html">CONTACTO</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="portada">
+    <div class="portada-contenido">
+        <span class="etiqueta">ACTIVIDAD FÍSICA Y ENTRENAMIENTO</span>
+
+        <h1>
+            ENCUENTRA<br>
+            <span>TU DISCIPLINA.</span>
+        </h1>
+
+        <p>
+            Cada objetivo requiere esfuerzo, constancia y una forma
+            de entrenamiento adecuada. Descubre diferentes modalidades
+            de actividad física y conoce las capacidades que ayudan a desarrollar.
+        </p>
+    </div>
+</section>
+
+<section class="seccion">
+<div class="contenedor">
+
+    <div class="encabezado-centro">
+        <p class="subtitulo">MODALIDADES DE ENTRENAMIENTO</p>
+        <h2 class="titulo">DESCUBRE DIFERENTES FORMAS DE ENTRENAR</h2>
+        <p class="descripcion">
+            Explora distintas modalidades de acondicionamiento físico.
+            Cada una ofrece estímulos y beneficios diferentes para el cuerpo.
+        </p>
+    </div>
+
+    <div class="categorias">
+        <a href="#fuerza">FUERZA</a>
+        <a href="#musculacion">MUSCULACIÓN</a>
+        <a href="#funcional">FUNCIONAL</a>
+        <a href="#cardio">CARDIO</a>
+        <a href="#resistencia">RESISTENCIA</a>
+        <a href="#flexibilidad">FLEXIBILIDAD</a>
+    </div>
+
+    <div class="disciplinas-grid">
+
+        <article class="disciplina" id="fuerza">
+            <div class="disciplina-imagen">
+                <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=850&q=85" alt="Entrenamiento de fuerza">
+            </div>
+            <div class="disciplina-contenido">
+                <span class="numero">DISCIPLINA 01</span>
+                <h3>ENTRENAMIENTO DE FUERZA</h3>
+                <p>
+                    Modalidad que utiliza resistencias como barras, mancuernas
+                    y máquinas para mejorar la capacidad muscular de producir fuerza.
+                </p>
+                <div class="beneficio">
+                    <strong>CAPACIDADES QUE DESARROLLA</strong>
+                    <span>Fuerza muscular, estabilidad y control del movimiento.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="disciplina" id="musculacion">
+            <div class="disciplina-imagen">
+                <img src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?auto=format&fit=crop&w=850&q=85" alt="Entrenamiento de musculación">
+            </div>
+            <div class="disciplina-contenido">
+                <span class="numero">DISCIPLINA 02</span>
+                <h3>MUSCULACIÓN</h3>
+                <p>
+                    Entrenamiento enfocado en estimular los músculos mediante
+                    ejercicios con resistencia, buscando su desarrollo y fortalecimiento.
+                </p>
+                <div class="beneficio">
+                    <strong>CAPACIDADES QUE DESARROLLA</strong>
+                    <span>Hipertrofia muscular, fuerza y control corporal.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="disciplina" id="funcional">
+            <div class="disciplina-imagen">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=850&q=85" alt="Entrenamiento funcional">
+            </div>
+            <div class="disciplina-contenido">
+                <span class="numero">DISCIPLINA 03</span>
+                <h3>ENTRENAMIENTO FUNCIONAL</h3>
+                <p>
+                    Combina movimientos que involucran diferentes grupos musculares
+                    y patrones de movimiento utilizados en actividades cotidianas.
+                </p>
+                <div class="beneficio">
+                    <strong>CAPACIDADES QUE DESARROLLA</strong>
+                    <span>Coordinación, equilibrio, fuerza y movilidad.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="disciplina" id="cardio">
+            <div class="disciplina-imagen">
+                <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=850&q=85" alt="Ejercicio cardiovascular">
+            </div>
+            <div class="disciplina-contenido">
+                <span class="numero">DISCIPLINA 04</span>
+                <h3>ENTRENAMIENTO CARDIOVASCULAR</h3>
+                <p>
+                    Actividades continuas como caminar, correr o pedalear,
+                    orientadas a estimular el sistema cardiovascular.
+                </p>
+                <div class="beneficio">
+                    <strong>CAPACIDADES QUE DESARROLLA</strong>
+                    <span>Resistencia aeróbica y capacidad cardiorrespiratoria.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="disciplina" id="resistencia">
+            <div class="disciplina-imagen">
+                <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?auto=format&fit=crop&w=850&q=85" alt="Entrenamiento de resistencia">
+            </div>
+            <div class="disciplina-contenido">
+                <span class="numero">DISCIPLINA 05</span>
+                <h3>RESISTENCIA MUSCULAR</h3>
+                <p>
+                    Trabajo físico que busca mejorar la capacidad de los músculos
+                    para mantener o repetir esfuerzos durante un periodo determinado.
+                </p>
+                <div class="beneficio">
+                    <strong>CAPACIDADES QUE DESARROLLA</strong>
+                    <span>Resistencia muscular, tolerancia al esfuerzo y constancia.</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="disciplina" id="flexibilidad">
+            <div class="disciplina-imagen">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=850&q=85" alt="Ejercicios de flexibilidad">
+            </div>
+            <div class="disciplina-contenido">
+                <span class="numero">DISCIPLINA 06</span>
+                <h3>MOVILIDAD Y FLEXIBILIDAD</h3>
+                <p>
+                    Ejercicios y movimientos que ayudan a conservar o mejorar
+                    el rango de movimiento de las articulaciones y la elasticidad muscular.
+                </p>
+                <div class="beneficio">
+                    <strong>CAPACIDADES QUE DESARROLLA</strong>
+                    <span>Movilidad articular, flexibilidad y control corporal.</span>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+</div>
+</section>
+
+<section class="seccion destacado">
+    <div class="contenedor destacado-contenido">
+
+        <div class="destacado-imagen">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1100&q=85" alt="Entrenamiento en gimnasio">
+        </div>
+
+        <div class="destacado-texto">
+            <p class="subtitulo">UN ENTRENAMIENTO PARA CADA OBJETIVO</p>
+            <h2 class="titulo">ELIGE TU CAMINO Y AVANZA A TU RITMO.</h2>
+
+            <p>
+                No todas las personas entrenan por la misma razón.
+                Algunas buscan aumentar su masa muscular, otras mejorar
+                su resistencia, fortalecer su cuerpo o desarrollar hábitos saludables.
+            </p>
+
+            <p>
+                Lo importante es adaptar la actividad física a las capacidades,
+                necesidades y objetivos individuales.
+            </p>
+
+            <ul class="lista">
+                <li>Desarrollo de fuerza y masa muscular.</li>
+                <li>Mejora de la resistencia física.</li>
+                <li>Fortalecimiento y acondicionamiento corporal.</li>
+                <li>Movilidad y control del movimiento.</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="contenedor">
+
+        <div class="encabezado-centro">
+            <p class="subtitulo">ENTRENAMIENTO CON RESPONSABILIDAD</p>
+            <h2 class="titulo">TRES ASPECTOS IMPORTANTES</h2>
+            <p class="descripcion">
+                Para aprovechar mejor cada sesión de entrenamiento,
+                es importante mantener hábitos adecuados.
+            </p>
+        </div>
+
+        <div class="informacion">
+
+            <article class="info-card">
+                <div class="icono">🎯</div>
+                <h3>OBJETIVOS CLAROS</h3>
+                <p>
+                    Define qué deseas mejorar y establece metas realistas
+                    de acuerdo con tu condición física.
+                </p>
+            </article>
+
+            <article class="info-card">
+                <div class="icono">📈</div>
+                <h3>PROGRESIÓN</h3>
+                <p>
+                    Aumenta gradualmente la dificultad de los ejercicios
+                    según tu adaptación y capacidad.
+                </p>
+            </article>
+
+            <article class="info-card">
+                <div class="icono">🛡️</div>
+                <h3>TÉCNICA Y SEGURIDAD</h3>
+                <p>
+                    Prioriza la ejecución correcta de los movimientos
+                    y solicita orientación cuando sea necesario.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="banner">
+    <p class="subtitulo">ZEUS GYM BODYFIT EXCLUSIVE</p>
+    <h2>LA CONSTANCIA MARCA LA DIFERENCIA.</h2>
+    <p>
+        Cada entrenamiento es una oportunidad para avanzar.<br>
+        Descubre los equipos y opciones disponibles en el gimnasio.
+    </p>
+    <a href="maquinas.html" class="boton">EXPLORAR MÁQUINAS</a>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-contenido">
+
+        <a href="index.html" class="footer-logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+            <div>
+                <h3>ZEUS GYM</h3>
+                <p>BODYFIT EXCLUSIVE</p>
+            </div>
+        </a>
+
+       
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ZEUS GYM BODYFIT EXCLUSIVE. Todos los derechos reservados.<br>
+        Sitio web desarrollado por WEBFIT.
+    </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", function() {
+    menu.classList.toggle("mostrar");
+    menuBtn.textContent = menu.classList.contains("mostrar") ? "✕" : "☰";
+});
+
+document.querySelectorAll("#menu a").forEach(function(enlace) {
+    enlace.addEventListener("click", function() {
+        menu.classList.remove("mostrar");
+        menuBtn.textContent = "☰";
+    });
+});
+</script>
+
+</body>
+</html>

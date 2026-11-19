@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZEUS GYM | Bodyfit Exclusive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #08080d;
+    --panel: #11111a;
+    --violeta: #8b35ff;
+    --rosa: #ed38b9;
+    --celeste: #32d9ed;
+    --blanco: #ffffff;
+    --gris: #a7a7b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* BARRA SUPERIOR */
+
+header {
+    width: 100%;
+    min-height: 88px;
+    background: rgba(8, 8, 13, 0.96);
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo-area img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo-text span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--rosa);
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 11px 12px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.activo {
+    border-color: var(--rosa);
+    background: linear-gradient(120deg, rgba(139,53,255,0.25), rgba(237,56,185,0.18));
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(237,56,185,0.15);
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--violeta);
+    color: white;
+    font-size: 24px;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* PORTADA PRINCIPAL */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    padding: 90px 8%;
+    position: relative;
+    background:
+    linear-gradient(90deg, rgba(8,8,13,0.98) 5%, rgba(8,8,13,0.85) 48%, rgba(8,8,13,0.3)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T7Saf-eHRKfVuPtiHNf2JjLWuJU9fRfvacwO5EVr9Jw7MXzFhX-JjNgz7O4Jp_qOe7siYOQQZbzso3bY_dLl1-OwqPhHMuK7THyDs6A2ivHQgtb7ANTBz6ck58zTP_JJMKRB-cU8sPj6qk=s1360-w1360-h1020-rw');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: rgba(139,53,255,0.17);
+    filter: blur(100px);
+    right: -100px;
+    bottom: -180px;
+}
+
+.hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 2;
+}
+
+.etiqueta {
+    display: inline-block;
+    border: 1px solid var(--rosa);
+    color: #ff7bd6;
+    padding: 10px 17px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 1.05;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--violeta), var(--rosa), var(--celeste));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0ceda;
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 570px;
+    margin: 28px 0 35px;
+}
+
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 25px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.3px;
+    transition: 0.3s;
+}
+
+.btn-principal {
+    background: linear-gradient(100deg, var(--violeta), var(--rosa));
+    color: white;
+}
+
+.btn-secundario {
+    border: 1px solid rgba(255,255,255,0.55);
+    color: white;
+    background: rgba(255,255,255,0.04);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(139,53,255,0.25);
+}
+
+/* FRANJA DE DATOS */
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #101019;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 35px 7%;
+    text-align: center;
+}
+
+.estadistica {
+    padding: 12px;
+    border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.estadistica:last-child {
+    border-right: none;
+}
+
+.estadistica h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 27px;
+    color: var(--rosa);
+    margin-bottom: 8px;
+}
+
+.estadistica p {
+    color: var(--gris);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+/* SECCIONES GENERALES */
+
+section {
+    scroll-margin-top: 100px;
+}
+
+.contenedor {
+    width: 84%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.seccion {
+    padding: 100px 0;
+}
+
+.subtitulo {
+    color: var(--rosa);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.titulo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    line-height: 1.25;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    color: var(--gris);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* PRESENTACIÓN */
+
+.presentacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.presentacion-imagen {
+    min-height: 420px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(237,56,185,0.35);
+}
+
+.presentacion-imagen img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s;
+}
+
+.presentacion-imagen:hover img {
+    transform: scale(1.06);
+}
+
+.presentacion-texto .descripcion {
+    margin-bottom: 28px;
+}
+
+/* TARJETAS DE SECCIONES */
+
+.secciones {
+    background: #0d0d15;
+}
+
+.encabezado-centro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.tarjeta {
+    background: linear-gradient(145deg, #171722, #0e0e16);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 8px;
+    padding: 30px 25px;
+    min-height: 225px;
+    transition: 0.35s;
+    position: relative;
+    overflow: hidden;
+}
+
+.tarjeta::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    left: 0;
+    top: 0;
+    background: linear-gradient(90deg, var(--violeta), var(--rosa));
+    transition: 0.4s;
+}
+
+.tarjeta:hover::before {
+    width: 100%;
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    border-color: rgba(237,56,185,0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+.icono {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.tarjeta h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+.tarjeta p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.tarjeta a {
+    color: #f36bc9;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.tarjeta a:hover {
+    color: var(--celeste);
+}
+
+/* LLAMADO A LA ACCIÓN */
+
+.banner {
+    padding: 85px 8%;
+    text-align: center;
+    background:
+    linear-gradient(90deg, rgba(10,8,18,0.93), rgba(10,8,18,0.88)),
+    url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=85');
+    background-size: cover;
+    background-position: center;
+    border-top: 1px solid rgba(237,56,185,0.3);
+    border-bottom: 1px solid rgba(139,53,255,0.3);
+}
+
+.banner h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 42px);
+    margin-bottom: 18px;
+}
+
+.banner p {
+    color: #d0ceda;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+/* UBICACIÓN Y CONTACTO */
+
+.contacto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.dato-contacto {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+
+.dato-contacto .icono-dato {
+    color: var(--rosa);
+    font-size: 22px;
+}
+
+.dato-contacto h4 {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.dato-contacto p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.contacto-imagen {
+    background: #151520;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.contacto-imagen h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.contacto-imagen p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background: #050509;
+    padding: 45px 8% 25px;
+    border-top: 1px solid rgba(255,255,255,0.09);
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.footer-logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.footer-logo h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+}
+
+.footer-logo p {
+    color: var(--rosa);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--gris);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.footer-links a:hover {
+    color: var(--rosa);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,0.09);
+    padding-top: 20px;
+    text-align: center;
+    color: #777785;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 6px;
+    }
+
+    nav a {
+        font-size: 9px;
+        padding: 9px;
+    }
+}
+
+@media (max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 0 8px;
+    }
+
+    nav.mostrar {
+        display: flex;
+    }
+
+    nav a {
+        text-align: center;
+        padding: 13px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 80px 7%;
+    }
+
+    .presentacion,
+    .contacto {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .logo-area img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .logo-text {
+        font-size: 15px;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .estadisticas {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .estadistica {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .estadistica:last-child {
+        border-bottom: none;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .contenedor {
+        width: 88%;
+    }
+
+    .seccion {
+        padding: 70px 0;
+    }
+
+    .botones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        text-align: center;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo-area">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+        <div class="logo-text">
+            ZEUS GYM
+            <span>BODYFIT EXCLUSIVE</span>
+        </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+    <nav id="menu">
+        <a href="index.html" class="activo">INICIO</a>
+        <a href="nosotros.html">NOSOTROS</a>
+        <a href="maquinas.html">MÁQUINAS</a>
+        <a href="disciplinas.html">DISCIPLINAS</a>
+        <a href="entrenadores.html">ENTRENADORES</a>
+        <a href="membresias.html">MEMBRESÍAS</a>
+        <a href="horarios.html">HORARIOS</a>
+        <a href="galeria.html">GALERÍA</a>
+        <a href="contacto.html">CONTACTO</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="etiqueta">BODYFIT EXCLUSIVE · ORURO</span>
+
+        <h1>
+            SUPERA TUS<br>
+            <span>LÍMITES.</span>
+        </h1>
+
+        <p>
+            Tu entrenamiento, tu disciplina y tu evolución comienzan aquí.
+            Descubre un espacio dedicado al acondicionamiento físico,
+            al desarrollo de la fuerza y a la construcción de una mejor versión de ti.
+        </p>
+
+        <div class="botones">
+            <a href="contacto.html" class="btn btn-principal">CONOCE MÁS</a>
+            <a href="maquinas.html" class="btn btn-secundario">EXPLORAR MÁQUINAS</a>
+        </div>
+    </div>
+</section>
+
+<section class="estadisticas">
+    <div class="estadistica">
+        <h2>01</h2>
+        <p>DISCIPLINA</p>
+    </div>
+
+    <div class="estadistica">
+        <h2>02</h2>
+        <p>CONSTANCIA</p>
+    </div>
+
+    <div class="estadistica">
+        <h2>03</h2>
+        <p>EVOLUCIÓN</p>
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="contenedor presentacion">
+
+        <div class="presentacion-imagen">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1100&q=85" alt="Entrenamiento de fuerza en gimnasio">
+        </div>
+
+        <div class="presentacion-texto">
+            <p class="subtitulo">BIENVENIDO A ZEUS GYM</p>
+
+            <h2 class="titulo">TU CAMBIO COMIENZA CON UNA DECISIÓN.</h2>
+
+            <p class="descripcion">
+                En ZEUS GYM BODYFIT EXCLUSIVE encontrarás un espacio
+                donde el esfuerzo y la constancia forman parte de cada entrenamiento.
+                Cada persona tiene objetivos diferentes y cada avance representa
+                un paso más hacia ellos.
+            </p>
+
+            <p class="descripcion">
+                Conoce nuestras instalaciones, explora las máquinas disponibles
+                y descubre las opciones de entrenamiento que puedes consultar
+                en nuestras diferentes secciones.
+            </p>
+
+            <br>
+
+            <a href="nosotros.html" class="btn btn-principal">CONÓCENOS</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="seccion secciones">
+    <div class="contenedor">
+
+        <div class="encabezado-centro">
+            <p class="subtitulo">DESCUBRE ZEUS GYM</p>
+            <h2 class="titulo">EXPLORA NUESTRAS SECCIONES</h2>
+            <p class="descripcion">
+                Encuentra información sobre el gimnasio, sus espacios,
+                alternativas de entrenamiento y formas de contacto.
+            </p>
+        </div>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="icono">⚡</div>
+                <h3>NOSOTROS</h3>
+                <p>Conoce la identidad, propósito y características de ZEUS GYM BODYFIT EXCLUSIVE.</p>
+                <a href="nosotros.html">DESCUBRIR MÁS →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🏋️</div>
+                <h3>MÁQUINAS</h3>
+                <p>Explora los equipos de entrenamiento y conoce los grupos musculares que trabajan.</p>
+                <a href="maquinas.html">EXPLORAR EQUIPOS →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🔥</div>
+                <h3>DISCIPLINAS</h3>
+                <p>Descubre las actividades y alternativas de acondicionamiento físico.</p>
+                <a href="disciplinas.html">VER DISCIPLINAS →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">💪</div>
+                <h3>ENTRENADORES</h3>
+                <p>Consulta la información relacionada con la orientación y el acompañamiento deportivo.</p>
+                <a href="entrenadores.html">CONOCER MÁS →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">👑</div>
+                <h3>MEMBRESÍAS</h3>
+                <p>Infórmate sobre las opciones de inscripción y los planes disponibles.</p>
+                <a href="membresias.html">VER OPCIONES →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">📅</div>
+                <h3>HORARIOS</h3>
+                <p>Consulta la información sobre los horarios de atención y entrenamiento.</p>
+                <a href="horarios.html">CONSULTAR HORARIOS →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">📸</div>
+                <h3>GALERÍA</h3>
+                <p>Observa imágenes relacionadas con el ambiente y la actividad del gimnasio.</p>
+                <a href="galeria.html">VER GALERÍA →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">📍</div>
+                <h3>CONTACTO</h3>
+                <p>Encuentra la ubicación y los medios disponibles para comunicarte con el gimnasio.</p>
+                <a href="contacto.html">CONTÁCTANOS →</a>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🚀</div>
+                <h3>COMIENZA HOY</h3>
+                <p>Da el primer paso, conoce el gimnasio y consulta las alternativas para entrenar.</p>
+                <a href="contacto.html">MÁS INFORMACIÓN →</a>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section class="banner">
+    <p class="subtitulo">EL MOMENTO ES AHORA</p>
+    <h2>NO ESPERES EL CAMBIO. CONSTRÚYELO.</h2>
+    <p>
+        La constancia transforma los objetivos en resultados.<br>
+        Empieza hoy a trabajar por tu mejor versión.
+    </p>
+    <a href="contacto.html" class="btn btn-principal">VISÍTANOS</a>
+</section>
+
+<section class="seccion">
+    <div class="contenedor contacto">
+
+        <div>
+            <p class="subtitulo">ENCUÉNTRANOS</p>
+            <h2 class="titulo">ESTAMOS EN ORURO</h2>
+
+            <p class="descripcion">
+                Acércate a ZEUS GYM BODYFIT EXCLUSIVE y conoce el espacio
+                donde puedes trabajar por tus objetivos físicos.
+            </p>
+
+            <div class="dato-contacto">
+                <span class="icono-dato">📍</span>
+                <div>
+                    <h4>UBICACIÓN</h4>
+                    <p>Calle B, entre Calle 3 y Calle 4,<br>zona Mercado Kantuta, Oruro, Bolivia.</p>
+                </div>
+            </div>
+
+            <div class="dato-contacto">
+                <span class="icono-dato">🌐</span>
+                <div>
+                    <h4>FACEBOOK</h4>
+                    <p>Encuentra las publicaciones e información del gimnasio en su página oficial.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contacto-imagen">
+            <h3>ZEUS GYM</h3>
+            <p>
+                BODYFIT EXCLUSIVE<br>
+                ORURO · BOLIVIA
+            </p>
+
+            <a class="btn btn-principal"
+               href="https://www.facebook.com/p/ZEUS-GYM-Exclusive-61576427563578/"
+               target="_blank" rel="noopener noreferrer">
+               VISITAR FACEBOOK
+            </a>
+
+            <br><br>
+
+            <a class="btn btn-secundario"
+               href="https://www.google.com/maps/search/?api=1&query=Mercado+Kantuta+Oruro+Bolivia"
+               target="_blank" rel="noopener noreferrer">
+               VER UBICACIÓN
+            </a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-contenido">
+
+        <div class="footer-logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+            <div>
+                <h3>ZEUS GYM</h3>
+                <p>BODYFIT EXCLUSIVE</p>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ZEUS GYM BODYFIT EXCLUSIVE. Todos los derechos reservados.<br>
+        Sitio web desarrollado por WEBFIT.
+    </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", function() {
+    menu.classList.toggle("mostrar");
+    menuBtn.textContent = menu.classList.contains("mostrar") ? "✕" : "☰";
+});
+
+document.querySelectorAll("#menu a").forEach(function(enlace) {
+    enlace.addEventListener("click", function() {
+        menu.classList.remove("mostrar");
+        menuBtn.textContent = "☰";
+    });
+});
+</script>
+
+</body>
+</html>

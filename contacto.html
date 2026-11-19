@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | ZEUS GYM EXCLUSIVE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #08080e;
+    --panel: #11111c;
+    --morado: #8b5cf6;
+    --rosa: #ec4899;
+    --cyan: #22d3ee;
+    --blanco: #ffffff;
+    --gris: #a5a5b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVEGACIÓN */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,14,.96);
+    border-bottom: 1px solid rgba(139,92,246,.25);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 13px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    color: var(--rosa);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+}
+
+nav a {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 10px 12px;
+    border: 1px solid #292638;
+    border-radius: 7px;
+    color: #d4d4df;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* PORTADA */
+
+.hero {
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+    linear-gradient(90deg,rgba(8,8,14,.94),rgba(8,8,14,.62)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T7Saf-eHRKfVuPtiHNf2JjLWuJU9fRfvacwO5EVr9Jw7MXzFhX-JjNgz7O4Jp_qOe7siYOQQZbzso3bY_dLl1-OwqPhHMuK7THyDs6A2ivHQgtb7ANTBz6ck58zTP_JJMKRB-cU8sPj6qk=s1360-w1360-h1020-rw')
+    center/cover;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 17px;
+    border: 1px solid var(--morado);
+    color: #d6c4ff;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(38px,7vw,68px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,var(--morado),var(--rosa),var(--cyan));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0d0dc;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+    font-size: 14px;
+}
+
+/* TÍTULOS */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 800;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(25px,4vw,36px);
+    margin: 13px 0;
+}
+
+.section-title p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* CONTACTO */
+
+.contact-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 75px 25px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    background: var(--panel);
+    border: 1px solid #302a42;
+    border-radius: 12px;
+    padding: 21px;
+    transition: .3s;
+}
+
+.info-card:hover {
+    border-color: var(--morado);
+    transform: translateY(-3px);
+}
+
+.info-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139,92,246,.16);
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+.info-card h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.info-card p,
+.info-card a {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.info-card a:hover {
+    color: var(--cyan);
+}
+
+/* REDES */
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid #39304c;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.social-links a:hover {
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    border-color: transparent;
+    color: white;
+}
+
+/* FORMULARIO */
+
+.form-card {
+    background: linear-gradient(145deg,#171524,#10101a);
+    border: 1px solid #39304c;
+    border-radius: 15px;
+    padding: 32px;
+}
+
+.form-card h2 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.form-card > p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 9px;
+    color: #e2dff0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    background: #090912;
+    border: 1px solid #373249;
+    border-radius: 7px;
+    color: white;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    transition: .3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--morado);
+    box-shadow: 0 0 0 3px rgba(139,92,246,.12);
+}
+
+.form-group select option {
+    background: #11111c;
+}
+
+.form-group textarea {
+    min-height: 115px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(236,72,153,.25);
+}
+
+.form-note {
+    color: #858596;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 13px;
+    line-height: 1.6;
+}
+
+/* UBICACIÓN Y CROQUIS */
+
+.location-section {
+    background:
+    radial-gradient(circle at 10% 10%,rgba(139,92,246,.12),transparent 35%),
+    #0d0c16;
+    padding: 80px 25px;
+}
+
+.location-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.location-box {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.location-text {
+    padding: 15px;
+}
+
+.location-text h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 23px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.location-text p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.location-text strong {
+    color: white;
+}
+
+/* IMAGEN DEL CROQUIS */
+
+.map-box {
+    width: 100%;
+    height: 410px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #594078;
+    background: #151421;
+    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+
+.map-box img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #151421;
+    transition: .3s;
+}
+
+.map-box:hover img {
+    transform: scale(1.02);
+}
+
+.map-button {
+    display: inline-block;
+    padding: 13px 20px;
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    transition: .3s;
+}
+
+.map-button:hover {
+    transform: translateY(-3px);
+}
+
+/* MENSAJE FINAL */
+
+.final-message {
+    max-width: 900px;
+    margin: 60px auto 0;
+    text-align: center;
+    padding: 35px;
+    border: 1px solid #44315f;
+    border-radius: 15px;
+    background: linear-gradient(120deg,rgba(139,92,246,.13),rgba(236,72,153,.08));
+}
+
+.final-message h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.final-message p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 20px;
+    background: #05050a;
+    border-top: 1px solid #292638;
+    text-align: center;
+}
+
+footer h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+footer h3 span {
+    color: var(--rosa);
+}
+
+footer p {
+    color: var(--gris);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-box {
+        grid-template-columns: 1fr;
+    }
+
+    .map-box {
+        height: 400px;
+    }
+}
+
+@media(max-width:600px) {
+    nav a {
+        font-size: 9px;
+        padding: 8px;
+    }
+
+    .hero {
+        min-height: 310px;
+    }
+
+    .contact-section,
+    .location-section {
+        padding: 50px 18px;
+    }
+
+    .form-card {
+        padding: 23px 18px;
+    }
+
+    .map-box {
+        height: 300px;
+    }
+
+    .final-message {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVEGACIÓN -->
+
+<header>
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo Zeus Gym">
+
+<div class="logo-text">
+ZEUS GYM
+<span>EXCLUSIVE</span>
+</div>
+</a>
+
+<nav>
+<a href="index.html">INICIO</a>
+<a href="nosotros.html">NOSOTROS</a>
+<a href="maquinas.html">MÁQUINAS</a>
+<a href="disciplinas.html">DISCIPLINAS</a>
+<a href="entrenadores.html">ENTRENADORES</a>
+<a href="membresias.html">MEMBRESÍAS</a>
+<a href="horarios.html">HORARIOS</a>
+<a href="galeria.html">GALERÍA</a>
+<a href="contacto.html" class="active">CONTACTO</a>
+</nav>
+
+</div>
+</header>
+
+<!-- PORTADA -->
+
+<section class="hero">
+<div class="hero-content">
+
+<div class="tag">ZEUS GYM EXCLUSIVE</div>
+
+<h1>ESTAMOS <span>EN CONTACTO</span></h1>
+
+<p>
+Estamos aquí para resolver tus dudas y brindarte
+la información que necesitas para comenzar tu
+experiencia fitness con ZEUS GYM EXCLUSIVE.
+</p>
+
+</div>
+</section>
+
+<!-- INFORMACIÓN Y FORMULARIO -->
+
+<section class="contact-section">
+
+<div class="section-title">
+<small>CONÉCTATE CON NOSOTROS</small>
+<h2>INFORMACIÓN DE CONTACTO</h2>
+<p>Comunícate con nuestro gimnasio y recibe atención sobre nuestros servicios.</p>
+</div>
+
+<div class="contact-grid">
+
+<div class="contact-info">
+
+<div class="info-card">
+<div class="info-icon">📍</div>
+<div>
+<h3>UBICACIÓN</h3>
+<p>
+Calle B entre Calle 3 y Calle 4,
+frente a la UTCA, Edificio Kantuta 3.
+Oruro, Bolivia.
+</p>
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">📞</div>
+<div>
+<h3>TELÉFONO</h3>
+<a href="tel:+59174541163">+591 74541163</a>
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">💬</div>
+<div>
+<h3>WHATSAPP</h3>
+<a href="https://wa.me/59174541163" target="_blank" rel="noopener">
+Escríbenos directamente
+</a>
+</div>
+</div>
+
+<div class="info-card">
+<div class="info-icon">🌐</div>
+<div>
+<h3>REDES SOCIALES</h3>
+<div class="social-links">
+
+<a href="https://www.tiktok.com/@zeus_gym_exclusive?is_from_webapp=1&sender_device=pc"
+target="_blank" rel="noopener">TIKTOK</a>
+
+<a href="https://www.facebook.com/p/ZEUS-GYM-Exclusive-61576427563578/"
+target="_blank" rel="noopener">FACEBOOK</a>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- FORMULARIO -->
+
+<div class="form-card">
+
+<h2>ENVÍANOS TU CONSULTA</h2>
+
+<p>
+Completa el siguiente formulario para solicitar
+información sobre nuestros servicios.
+</p>
+
+<form id="contactForm">
+
+<div class="form-group">
+<label for="nombre">Nombre completo</label>
+<input type="text" id="nombre"
+placeholder="Escribe tu nombre" required>
+</div>
+
+<div class="form-group">
+<label for="telefono">Número de teléfono</label>
+<input type="tel" id="telefono"
+placeholder="Tu número de contacto" required>
+</div>
+
+<div class="form-group">
+<label for="asunto">¿Qué información necesitas?</label>
+
+<select id="asunto" required>
+<option value="">Selecciona una opción</option>
+<option value="Información sobre membresías">Membresías y precios</option>
+<option value="Información sobre horarios">Horarios de atención</option>
+<option value="Información sobre disciplinas">Disciplinas y actividades</option>
+<option value="Información sobre máquinas">Máquinas y equipamiento</option>
+<option value="Otra consulta">Otra consulta</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="mensaje">Tu mensaje</label>
+<textarea id="mensaje"
+placeholder="Escribe aquí tu consulta..." required></textarea>
+</div>
+
+<button type="submit" class="submit-btn">
+ENVIAR CONSULTA POR WHATSAPP
+</button>
+
+<p class="form-note">
+Al continuar, se abrirá WhatsApp con tu consulta preparada.
+Debes pulsar enviar para que el gimnasio la reciba.
+</p>
+
+</form>
+</div>
+
+</div>
+
+<div class="final-message">
+<h3>¡TU PRÓXIMO OBJETIVO COMIENZA AQUÍ!</h3>
+<p>
+En ZEUS GYM EXCLUSIVE te invitamos a dar el primer paso
+hacia una vida más activa. Estamos listos para atender
+tus consultas y ayudarte a conocer nuestros servicios.
+</p>
+</div>
+
+</section>
+
+<!-- UBICACIÓN Y CROQUIS -->
+
+<section class="location-section">
+
+<div class="location-container">
+
+<div class="section-title">
+<small>ENCUÉNTRANOS</small>
+<h2>NUESTRA UBICACIÓN</h2>
+<p>Visítanos y descubre tu próximo espacio de entrenamiento.</p>
+</div>
+
+<div class="location-box">
+
+<div class="location-text">
+
+<h3>VEN A ENTRENAR CON NOSOTROS</h3>
+
+<p>
+<strong>ZEUS GYM EXCLUSIVE</strong><br><br>
+Calle B entre Calle 3 y Calle 4.<br>
+Frente a la UTCA, Edificio Kantuta 3.<br>
+Oruro - Bolivia.
+</p>
+
+<p>
+Consulta nuestro croquis de ubicación para
+identificar los alrededores y encontrar
+más fácilmente nuestro gimnasio.
+</p>
+
+<a class="map-button"
+href="https://www.google.com/maps/dir/?api=1&destination=ZEUS+GYM+EXCLUSIVE+Calle+B+Calle+3+Calle+4+Oruro+Bolivia"
+target="_blank" rel="noopener">
+CÓMO LLEGAR
+</a>
+
+</div>
+
+<!-- IMAGEN DEL CROQUIS -->
+
+<div class="map-box">
+<img
+src="croquis-zeus.jpg"
+alt="Croquis de ubicación de ZEUS GYM EXCLUSIVE">
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+<h3>ZEUS GYM <span>EXCLUSIVE</span></h3>
+<p>
+DISCIPLINA · FUERZA · SUPERACIÓN<br>
+Oruro - Bolivia<br><br>
+© 2026 ZEUS GYM EXCLUSIVE. Todos los derechos reservados.
+</p>
+</footer>
+
+<!-- FUNCIONAMIENTO DEL FORMULARIO -->
+
+<script>
+
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(event) {
+
+    event.preventDefault();
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const asunto = document.getElementById('asunto').value;
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    if (!nombre || !telefono || !asunto || !mensaje) {
+        alert('Por favor, completa todos los campos.');
+        return;
+    }
+
+    const texto =
+        'Hola ZEUS GYM EXCLUSIVE. Quisiera realizar una consulta.\n\n' +
+        'Nombre: ' + nombre + '\n' +
+        'Teléfono: ' + telefono + '\n' +
+        'Consulta: ' + asunto + '\n' +
+        'Mensaje: ' + mensaje;
+
+    const numero = '59174541163';
+
+    const enlace = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(texto);
+
+    window.open(enlace, '_blank');
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Membresías | ZEUS GYM EXCLUSIVE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #080810;
+    --panel: #131321;
+    --morado: #8b35ff;
+    --rosa: #ed36a7;
+    --cyan: #20d9f5;
+    --blanco: #ffffff;
+    --gris: #aaa9b9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,16,.97);
+    border-bottom: 1px solid rgba(139,53,255,.25);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1450px;
+    margin: auto;
+    padding: 13px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    font-size: 10px;
+    font-weight: 700;
+    color: #d0cedb;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+    border-color: var(--morado);
+    background: rgba(139,53,255,.14);
+    box-shadow: 0 0 15px rgba(139,53,255,.18);
+}
+
+.menu-btn {
+    display: none;
+    border: 1px solid var(--morado);
+    background: transparent;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    padding: 90px 8%;
+    background:
+    linear-gradient(90deg, rgba(8,8,16,.98) 5%, rgba(8,8,16,.82) 55%, rgba(8,8,16,.30)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9T7Saf-eHRKfVuPtiHNf2JjLWuJU9fRfvacwO5EVr9Jw7MXzFhX-JjNgz7O4Jp_qOe7siYOQQZbzso3bY_dLl1-OwqPhHMuK7THyDs6A2ivHQgtb7ANTBz6ck58zTP_JJMKRB-cU8sPj6qk=s1360-w1360-h1020-rw') center/cover;
+}
+
+.hero-content {
+    max-width: 780px;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid rgba(32,217,245,.5);
+    background: rgba(32,217,245,.08);
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(38px, 6vw, 73px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--morado), var(--rosa), var(--cyan));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0cedb;
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 620px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 24px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: linear-gradient(100deg, var(--morado), var(--rosa));
+    color: white;
+    box-shadow: 0 7px 25px rgba(139,53,255,.25);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.35);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+/* GENERAL */
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 55px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    margin: 17px 0;
+}
+
+.section-title h2 span {
+    color: var(--morado);
+}
+
+.section-title p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* PLANES */
+
+.plans {
+    background:
+    radial-gradient(circle at 50% 0%, rgba(139,53,255,.13), transparent 40%),
+    var(--fondo);
+}
+
+.plans-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-items: stretch;
+}
+
+.plan-card {
+    position: relative;
+    background: linear-gradient(150deg, #191927, #0e0e18);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 14px;
+    padding: 32px 24px;
+    transition: .35s;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-card:hover {
+    transform: translateY(-9px);
+    border-color: var(--morado);
+    box-shadow: 0 15px 35px rgba(139,53,255,.16);
+}
+
+.plan-card.featured {
+    border: 1px solid var(--rosa);
+    background: linear-gradient(155deg, #24152e, #11111d 75%);
+    box-shadow: 0 0 30px rgba(237,54,167,.12);
+}
+
+.popular {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    background: linear-gradient(100deg, var(--morado), var(--rosa));
+    padding: 8px 17px;
+    border-radius: 30px;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.plan-label {
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.plan-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 21px;
+    margin: 15px 0;
+}
+
+.price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 12px 0 5px;
+}
+
+.price span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: var(--cyan);
+    vertical-align: top;
+}
+
+.duration {
+    color: var(--gris);
+    font-size: 11px;
+    margin-bottom: 25px;
+}
+
+.plan-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,.10);
+    margin-bottom: 22px;
+}
+
+.benefits {
+    list-style: none;
+    display: grid;
+    gap: 16px;
+    margin-bottom: 30px;
+    flex: 1;
+}
+
+.benefits li {
+    display: flex;
+    gap: 10px;
+    color: #d0cedb;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.benefits li span {
+    color: var(--cyan);
+    font-weight: 900;
+}
+
+.plan-card .btn {
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
+
+.plan-card:not(.featured) .btn {
+    background: rgba(139,53,255,.15);
+    border: 1px solid rgba(139,53,255,.5);
+    color: white;
+}
+
+.plan-card .btn:hover {
+    background: linear-gradient(100deg, var(--morado), var(--rosa));
+}
+
+/* PROMOCION */
+
+.promo {
+    background: #10101c;
+}
+
+.promo-box {
+    max-width: 1150px;
+    margin: auto;
+    padding: 55px;
+    border-radius: 18px;
+    border: 1px solid rgba(32,217,245,.25);
+    background:
+    linear-gradient(110deg, rgba(139,53,255,.18), rgba(237,54,167,.08)),
+    #171725;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.promo-content {
+    max-width: 700px;
+}
+
+.promo-content small {
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.promo-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(25px, 4vw, 38px);
+    margin: 17px 0;
+}
+
+.promo-content h2 span {
+    color: var(--rosa);
+}
+
+.promo-content p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.promo-price {
+    min-width: 180px;
+    text-align: center;
+    padding: 25px;
+    border: 1px solid rgba(237,54,167,.45);
+    border-radius: 12px;
+}
+
+.promo-price strong {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
+    color: var(--cyan);
+}
+
+.promo-price span {
+    color: var(--gris);
+    font-size: 10px;
+}
+
+/* BENEFICIOS */
+
+.benefits-section {
+    background: var(--fondo);
+}
+
+.benefit-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.benefit-card {
+    padding: 32px 27px;
+    background: #151521;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.benefit-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-6px);
+}
+
+.benefit-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(139,53,255,.16);
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.benefit-card p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* FAQ */
+
+.faq {
+    background: #10101c;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+details {
+    background: #191927;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 9px;
+    margin-bottom: 13px;
+    padding: 20px 23px;
+}
+
+summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 800;
+    list-style: none;
+    position: relative;
+    padding-right: 25px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    color: var(--cyan);
+    font-size: 20px;
+    top: -5px;
+}
+
+details[open] summary::after {
+    content: '−';
+}
+
+details p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.9;
+    padding-top: 15px;
+}
+
+/* CTA */
+
+.cta {
+    text-align: center;
+    background:
+    linear-gradient(rgba(8,8,16,.90), rgba(8,8,16,.95)),
+    url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.cta h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    margin-bottom: 20px;
+}
+
+.cta h2 span {
+    color: var(--cyan);
+}
+
+.cta p {
+    max-width: 650px;
+    margin: auto;
+    color: #c1bfce;
+    line-height: 1.9;
+    font-size: 13px;
+}
+
+.cta .btn {
+    margin-top: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #05050a;
+    padding: 45px 8% 25px;
+    border-top: 1px solid rgba(139,53,255,.25);
+}
+
+.footer-content {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-brand img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.footer-brand h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+}
+
+.footer-brand p {
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.footer-links a:hover {
+    color: var(--cyan);
+}
+
+.copyright {
+    max-width: 1250px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #777586;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1100px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 9px;
+        font-size: 9px;
+    }
+
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 0;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        text-align: center;
+        border: 1px solid rgba(255,255,255,.08);
+        font-size: 11px;
+    }
+
+    .promo-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 35px;
+    }
+
+    .promo-price {
+        width: 100%;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 560px) {
+    section {
+        padding: 70px 6%;
+    }
+
+    .hero {
+        padding: 75px 6%;
+        min-height: 500px;
+    }
+
+    .plans-grid,
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .promo-box {
+        padding: 27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+
+        <a href="../inicio/index.html" class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+            <div class="logo-text">
+                ZEUS GYM
+                <span>EXCLUSIVE</span>
+            </div>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <nav id="menu">
+            <a href="index.html">INICIO</a>
+            <a href="nosotros.html">NOSOTROS</a>
+            <a href="maquinas.html">MÁQUINAS</a>
+            <a href="disciplinas.html">DISCIPLINAS</a>
+            <a href="entrenadores.html">ENTRENADORES</a>
+            <a href="membresias.html" class="active">MEMBRESÍAS</a>
+            <a href="horarios.html">HORARIOS</a>
+            <a href="galeria.html">GALERÍA</a>
+            <a href="contacto.html">CONTACTO</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <span class="tag">ZEUS MEMBERSHIPS</span>
+
+            <h1>
+                ELIGE TU PLAN.<br>
+                <span>SUPERA TUS LÍMITES.</span>
+            </h1>
+
+            <p>
+                Tu transformación comienza con una decisión.
+                Descubre nuestras opciones de membresía y encuentra
+                el plan que mejor se adapte a tus objetivos,
+                disponibilidad y ritmo de entrenamiento.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#planes" class="btn btn-primary">VER MEMBRESÍAS</a>
+                <a href="contacto.html" class="btn btn-outline">SOLICITAR INFORMACIÓN</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="plans" id="planes">
+
+        <div class="section-title">
+            <small>ENCUENTRA TU MEMBRESÍA</small>
+            <h2>PLANES PARA CADA <span>OBJETIVO</span></h2>
+            <p>
+                Elige la duración que más te convenga y mantén
+                tu compromiso con el entrenamiento.
+                Todos los precios están expresados en bolivianos.
+            </p>
+        </div>
+
+        <div class="plans-grid">
+
+            <article class="plan-card">
+
+                <span class="plan-label">PLAN 01</span>
+                <h3>MENSUAL</h3>
+
+                <div class="price"><span>Bs</span> 120</div>
+                <p class="duration">Vigencia de 30 días</p>
+
+                <div class="plan-line"></div>
+
+                <ul class="benefits">
+                    <li><span>✓</span> Acceso al gimnasio durante el periodo contratado</li>
+                    <li><span>✓</span> Uso de las máquinas y equipos disponibles</li>
+                    <li><span>✓</span> Entrenamiento según los horarios del establecimiento</li>
+                    <li><span>✓</span> Ideal para comenzar</li>
+                </ul>
+
+                <a href="contacto.html" class="btn">ELEGIR PLAN</a>
+
+            </article>
+
+            <article class="plan-card">
+
+                <span class="plan-label">PLAN 02</span>
+                <h3>TRIMESTRAL</h3>
+
+                <div class="price"><span>Bs</span> 330</div>
+                <p class="duration">Vigencia de 3 meses</p>
+
+                <div class="plan-line"></div>
+
+                <ul class="benefits">
+                    <li><span>✓</span> Acceso durante tres meses</li>
+                    <li><span>✓</span> Uso de máquinas y equipos disponibles</li>
+                    <li><span>✓</span> Mayor continuidad de entrenamiento</li>
+                    <li><span>✓</span> Ahorro frente al pago mensual</li>
+                </ul>
+
+                <a href="contacto.html" class="btn">ELEGIR PLAN</a>
+
+            </article>
+
+            <article class="plan-card featured">
+
+                <div class="popular">MÁS ELEGIDO</div>
+
+                <span class="plan-label">PLAN 03</span>
+                <h3>SEMESTRAL</h3>
+
+                <div class="price"><span>Bs</span> 600</div>
+                <p class="duration">Vigencia de 6 meses</p>
+
+                <div class="plan-line"></div>
+
+                <ul class="benefits">
+                    <li><span>✓</span> Acceso durante seis meses</li>
+                    <li><span>✓</span> Uso de máquinas y equipos disponibles</li>
+                    <li><span>✓</span> Tiempo para desarrollar constancia</li>
+                    <li><span>✓</span> Mejor precio por mes</li>
+                </ul>
+
+                <a href="contacto.html" class="btn btn-primary">ELEGIR PLAN</a>
+
+            </article>
+
+            <article class="plan-card">
+
+                <span class="plan-label">PLAN 04</span>
+                <h3>ANUAL</h3>
+
+                <div class="price"><span>Bs</span> 1.080</div>
+                <p class="duration">Vigencia de 12 meses</p>
+
+                <div class="plan-line"></div>
+
+                <ul class="benefits">
+                    <li><span>✓</span> Acceso durante doce meses</li>
+                    <li><span>✓</span> Uso de máquinas y equipos disponibles</li>
+                    <li><span>✓</span> Compromiso de entrenamiento a largo plazo</li>
+                    <li><span>✓</span> Mayor ahorro en el año</li>
+                </ul>
+
+                <a href="contacto.html" class="btn">ELEGIR PLAN</a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="promo">
+
+        <div class="promo-box">
+
+            <div class="promo-content">
+                <small>OPCIÓN PARA VISITANTES</small>
+                <h2>PRUEBA UN DÍA.<br><span>VIVE LA EXPERIENCIA.</span></h2>
+                <p>
+                    Si deseas conocer el ambiente y las instalaciones
+                    antes de elegir una membresía, puedes consultar
+                    por nuestra opción de entrenamiento diario.
+                </p>
+            </div>
+
+            <div class="promo-price">
+                <strong>Bs 15</strong>
+                <span>PASE POR UN DÍA</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="benefits-section">
+
+        <div class="section-title">
+            <small>ENTRENA A TU MANERA</small>
+            <h2>¿QUÉ INCLUYE TU <span>MEMBRESÍA?</span></h2>
+            <p>
+                Cada plan está pensado para facilitar tu experiencia
+                de entrenamiento y ayudarte a mantener una rutina.
+            </p>
+        </div>
+
+        <div class="benefit-grid">
+
+            <article class="benefit-card">
+                <div class="benefit-icon">🏋️</div>
+                <h3>Equipamiento</h3>
+                <p>
+                    Acceso a las máquinas, pesas y equipos disponibles
+                    en las instalaciones del gimnasio.
+                </p>
+            </article>
+
+            <article class="benefit-card">
+                <div class="benefit-icon">📅</div>
+                <h3>Flexibilidad</h3>
+                <p>
+                    Diferentes periodos de membresía para que puedas
+                    elegir según tu disponibilidad y presupuesto.
+                </p>
+            </article>
+
+            <article class="benefit-card">
+                <div class="benefit-icon">💪</div>
+                <h3>Constancia</h3>
+                <p>
+                    Un espacio para desarrollar hábitos deportivos,
+                    trabajar tu condición física y avanzar hacia tus metas.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="faq">
+
+        <div class="section-title">
+            <small>INFORMACIÓN IMPORTANTE</small>
+            <h2>PREGUNTAS <span>FRECUENTES</span></h2>
+            <p>
+                Resuelve algunas dudas antes de elegir tu membresía.
+            </p>
+        </div>
+
+        <div class="faq-container">
+
+            <details>
+                <summary>¿Cómo puedo adquirir una membresía?</summary>
+                <p>
+                    Puedes comunicarte con el gimnasio o visitarnos
+                    para consultar la disponibilidad de los planes,
+                    realizar el registro y conocer las condiciones de pago.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Cuándo comienza la vigencia de mi plan?</summary>
+                <p>
+                    La vigencia comienza desde la fecha de activación
+                    de la membresía, según las condiciones acordadas
+                    al momento del registro.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Puedo elegir entre diferentes duraciones?</summary>
+                <p>
+                    Sí. Se presentan opciones mensual, trimestral,
+                    semestral y anual para adaptarse a diferentes
+                    necesidades y compromisos.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿El pase diario permite utilizar las instalaciones?</summary>
+                <p>
+                    El pase diario se plantea como una alternativa
+                    para visitantes. Consulta previamente su disponibilidad
+                    y las condiciones de uso.
+                </p>
+            </details>
+
+            <details>
+                <summary>¿Los precios incluyen servicios adicionales?</summary>
+                <p>
+                    Los precios mostrados corresponden a la propuesta
+                    de acceso al gimnasio. Cualquier servicio adicional
+                    deberá consultarse directamente con el establecimiento.
+                </p>
+            </details>
+
+        </div>
+
+    </section>
+
+    <section class="cta">
+
+        <h2>EL PRIMER PASO ES <span>DECIDIRTE.</span></h2>
+
+        <p>
+            No esperes el momento perfecto para comenzar.
+            Elige tu membresía y trabaja día a día por una
+            versión más fuerte de ti.
+        </p>
+
+        <a href="contacto.html" class="btn btn-primary">
+            CONSULTAR MEMBRESÍAS
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS">
+            <div>
+                <h3>ZEUS GYM EXCLUSIVE</h3>
+                <p>ENTRENA. SUPÉRATE. EVOLUCIONA.</p>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ZEUS GYM EXCLUSIVE | Todos los derechos reservados.
+        <br><br>
+        Los precios publicados son referenciales y están sujetos a confirmación.
+    </div>
+
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

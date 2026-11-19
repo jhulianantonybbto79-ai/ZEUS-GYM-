@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería | ZEUS GYM EXCLUSIVE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #08080e;
+    --panel: #11111c;
+    --morado: #8b5cf6;
+    --rosa: #ec4899;
+    --cyan: #22d3ee;
+    --blanco: #ffffff;
+    --gris: #a5a5b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* NAVEGACIÓN */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,14,.96);
+    border-bottom: 1px solid rgba(139,92,246,.25);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 13px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    color: var(--rosa);
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+}
+
+nav a {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 10px 12px;
+    border: 1px solid #292638;
+    border-radius: 7px;
+    color: #d4d4df;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    border-color: transparent;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* PORTADA */
+
+.hero {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 90px 20px;
+    background:
+    linear-gradient(90deg,rgba(8,8,14,.94),rgba(8,8,14,.55)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SkboM2Sobnn4_vg2HoxDHuxoyUeMXUWlWLrUVSxqFUNshnCrkoE0VZeP02CGYQLMtQrw3F2m_TFaLOyrqztQ6fJ_0fcHAe6JMDUhkNhMmISJ377kY2ip-lK4P3MZ7HavGT3eI7BbMa5vpL=s1360-w1360-h1020-rw')
+    center/cover;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 17px;
+    border: 1px solid var(--morado);
+    color: #d6c4ff;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(38px,7vw,72px);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,var(--morado),var(--rosa),var(--cyan));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0d0dc;
+    line-height: 1.8;
+    max-width: 650px;
+    margin: auto;
+    font-size: 14px;
+}
+
+/* SECCIONES */
+
+section {
+    max-width: 1250px;
+    padding: 75px 25px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 800;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(25px,4vw,39px);
+    margin: 13px 0;
+}
+
+.section-title p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* FILTROS */
+
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.filter-btn {
+    background: #151421;
+    color: #c9c9d5;
+    border: 1px solid #343044;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 11px;
+    transition: .3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    color: white;
+    border-color: transparent;
+}
+
+/* GALERÍA FOTOGRÁFICA */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 270px;
+    border-radius: 13px;
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid #292638;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.09);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px;
+    background: linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.gallery-overlay h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.gallery-overlay p {
+    font-size: 11px;
+    color: #d3d3dc;
+}
+
+.gallery-item.hide {
+    display: none;
+}
+
+/* SECCIÓN DE VIDEOS */
+
+.video-section {
+    max-width: 100%;
+    background:
+    radial-gradient(circle at 10% 10%,rgba(139,92,246,.13),transparent 35%),
+    radial-gradient(circle at 90% 80%,rgba(236,72,153,.10),transparent 35%),
+    #0d0c16;
+}
+
+.video-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 25px;
+}
+
+/* CONTENEDOR MÁS PEQUEÑO */
+
+.video-grid {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+.video-card {
+    background: #151421;
+    border: 1px solid #302a42;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--morado);
+    box-shadow: 0 12px 28px rgba(139,92,246,.13);
+}
+
+.video-frame {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-frame video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+}
+
+.video-info {
+    padding: 17px 18px 19px;
+}
+
+.video-info span {
+    color: var(--cyan);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.video-info h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 13px;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.video-info p {
+    font-size: 11px;
+    color: var(--gris);
+    line-height: 1.7;
+}
+
+/* TIKTOK */
+
+.social-box {
+    max-width: 850px;
+    margin: 40px auto 0;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #44315f;
+    border-radius: 15px;
+    background: linear-gradient(120deg,rgba(139,92,246,.13),rgba(236,72,153,.08));
+}
+
+.social-box h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.social-box p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 23px;
+    border-radius: 7px;
+    background: linear-gradient(100deg,var(--morado),var(--rosa));
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(236,72,153,.25);
+}
+
+/* VISUALIZADOR DE FOTOS */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0,0,0,.94);
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    padding: 35px 20px;
+    background: #05050a;
+    border-top: 1px solid #292638;
+    text-align: center;
+}
+
+footer h3 {
+    font-family: 'Orbitron',sans-serif;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+footer h3 span {
+    color: var(--rosa);
+}
+
+footer p {
+    color: var(--gris);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* ADAPTACIÓN A PANTALLAS */
+
+@media(max-width:900px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+    nav a {
+        font-size: 9px;
+        padding: 8px;
+    }
+
+    .gallery,
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .video-grid {
+        max-width: 430px;
+    }
+
+    .video-container {
+        padding: 50px 18px;
+    }
+
+    .social-box {
+        padding: 25px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVEGACIÓN -->
+
+<header>
+<div class="nav-container">
+
+<a href="index.html" class="logo">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo Zeus Gym">
+
+<div class="logo-text">
+ZEUS GYM
+<span>EXCLUSIVE</span>
+</div>
+</a>
+
+<nav>
+<a href="index.html">INICIO</a>
+<a href="nosotros.html">NOSOTROS</a>
+<a href="maquinas.html">MÁQUINAS</a>
+<a href="disciplinas.html">DISCIPLINAS</a>
+<a href="entrenadores.html">ENTRENADORES</a>
+<a href="membresias.html">MEMBRESÍAS</a>
+<a href="horarios.html">HORARIOS</a>
+<a href="galeria.html" class="active">GALERÍA</a>
+<a href="contacto.html">CONTACTO</a>
+</nav>
+
+</div>
+</header>
+
+<!-- PORTADA -->
+
+<section class="hero">
+<div class="hero-content">
+
+<div class="tag">ZEUS GYM EXCLUSIVE</div>
+
+<h1>VIVE LA <span>EXPERIENCIA</span></h1>
+
+<p>
+Descubre el mundo ZEUS GYM a través de imágenes y videos.
+Cada entrenamiento representa esfuerzo, disciplina y superación.
+¡La transformación comienza con una decisión!
+</p>
+
+</div>
+</section>
+
+<!-- GALERÍA FOTOGRÁFICA -->
+
+<section id="fotografias">
+
+<div class="section-title">
+<small>IMÁGENES Y MOMENTOS</small>
+<h2>GALERÍA FOTOGRÁFICA</h2>
+<p>Explora diferentes espacios, equipos y actividades del mundo fitness.</p>
+</div>
+
+<div class="filters">
+<button class="filter-btn active" data-filter="all">TODAS</button>
+<button class="filter-btn" data-filter="instalaciones">INSTALACIONES</button>
+<button class="filter-btn" data-filter="maquinas">MÁQUINAS</button>
+<button class="filter-btn" data-filter="entrenamiento">ENTRENAMIENTO</button>
+</div>
+
+<div class="gallery">
+
+<div class="gallery-item" data-category="instalaciones">
+<img src="https://scontent.flpb1-1.fna.fbcdn.net/v/t39.30808-6/501542231_122107301558880918_5075174689941390630_n.jpg?stp=dst-jpg_tt6&cstp=mx2000x900&ctp=s2000x900&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=oK2es_KNnacQ7kNvwEeDuuD&_nc_oc=Adpye8yrouAZUMPmQwLOxZ715N-NY02azo8EofWhmC8-GUo1uRzrcYp4H_iK3BrwxxipO51f3vzCO4SEzk9idwok&_nc_zt=23&_nc_ht=scontent.flpb1-1.fna&_nc_gid=fMcK79ok9f76pgboMCIRww&_nc_ss=7b289&oh=00_AQRq55Ncfg6h3vNetS__QK6wxiBLC9bfGrW8LOt01zEBsA&oe=6B0258BE" alt="Ambiente de gimnasio">
+<div class="gallery-overlay">
+<h3>AMBIENTE FITNESS</h3>
+<p>Espacios diseñados para entrenar.</p>
+</div>
+</div>
+
+<div class="gallery-item" data-category="maquinas">
+<img src="https://scontent.flpb1-1.fna.fbcdn.net/v/t39.30808-6/500743026_122107309124880918_2671805406548307010_n.jpg?stp=dst-jpg_tt6&cstp=mx1640x738&ctp=s1640x738&_nc_cat=107&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sZIB0-ZEq6UQ7kNvwHfw6qg&_nc_oc=AdpwQdo_WkJrCEds4AkIa_iVkYpBX37EjrZdaCgeupEAgoSeqzVOJsOq0mdspUxaBwOQBmQpsBz2Rx5ofylCPE9_&_nc_zt=23&_nc_ht=scontent.flpb1-1.fna&_nc_gid=-Vx5UwE-BGG8qUYlNGqo1w&_nc_ss=7b289&oh=00_AQQLO_2v5U_0oSUGGCwyOEmXX8lHQ7tA6e0RkhFTr5GNxQ&oe=6B023082" alt="Equipamiento de gimnasio">
+<div class="gallery-overlay">
+<h3>EQUIPAMIENTO</h3>
+<p>Entrenamiento de fuerza y musculación.</p>
+</div>
+</div>
+
+<div class="gallery-item" data-category="entrenamiento">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RWcMXmF-XfWMNKKN-Ql7YmfXUMu0Si63kl2LG5qRizPcd1K_lVJAm9e6T7GX2LRc3j8Sdb5mTHMcfyeJGirHAiGgDEpOtbqUxFIUug1QSZyz-PP5UcQp-DKg2UokEBgyiGXhMORRCPAuk=s1360-w1360-h1020-rw" alt="Entrenamiento físico">
+<div class="gallery-overlay">
+<h3>ENTRENAMIENTO</h3>
+<p>Constancia para alcanzar tus objetivos.</p>
+</div>
+</div>
+
+<div class="gallery-item" data-category="maquinas">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QHuiYPW-4TzwJrSCwvxCKWJ1ZBmR4svfkdEZnSRwLjDeNl8yIShDi0Wt7FvwArtjR5WlxDr0CGYBRQPJWPkYovPM92ygXja1jte4POGf-HqPid5l2CSSj9sXxoTEasxkTyEW0OJsU7wKi_=s1360-w1360-h1020-rw" alt="Entrenamiento con pesas">
+<div class="gallery-overlay">
+<h3>ZONA DE PESAS</h3>
+<p>Fuerza, resistencia y progreso.</p>
+</div>
+</div>
+
+<div class="gallery-item" data-category="entrenamiento">
+<img src="https://scontent.flpb1-2.fna.fbcdn.net/v/t39.30808-6/502620013_122107309394880918_7738435441637350110_n.jpg?stp=dst-jpg_tt6&cstp=mx1640x738&ctp=s1640x738&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=C3PNVBMTUWMQ7kNvwF74bCY&_nc_oc=AdrekUxR2a5JHuJHSoUlJerzQFh0M9YNTQwKThUGMFog9sFNslQ-F7swRougNtvCDLUzvrWzM0ObfIR2CMrlhF5-&_nc_zt=23&_nc_ht=scontent.flpb1-2.fna&_nc_gid=Rg5eggofucd66244iqmWHg&_nc_ss=7b289&oh=00_AQRoMsqhBz56LV5t1gk7dK4ENe4AEgCcRAb93C-AavtoRg&oe=6B02315C" alt="Actividad deportiva">
+<div class="gallery-overlay">
+<h3>ACTIVIDAD FÍSICA</h3>
+<p>Supera tus propios límites.</p>
+</div>
+</div>
+
+<div class="gallery-item" data-category="instalaciones">
+<img src="https://scontent.flpb1-1.fna.fbcdn.net/v/t39.30808-6/502043445_122107309610880918_634574402544402902_n.jpg?stp=dst-jpg_tt6&cstp=mx2000x900&ctp=s2000x900&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=4qq8ej_dMecQ7kNvwGk7BN8&_nc_oc=AdrJyEM2xX2VSWHUG4BIH_oEM7ZYPphINNimlT2McHVyUIaowdonQBTmp1WOZaZw0YFqemBggUuvZQJxMNATp98q&_nc_zt=23&_nc_ht=scontent.flpb1-1.fna&_nc_gid=YjMzqDDG8JyXRONyTBDjaw&_nc_ss=7b289&oh=00_AQQ3bycZYhLB1kgu-3hXJQCH2HW7lpmi1E708hUo3gnX2g&oe=6B024D15" alt="Sala de entrenamiento">
+<div class="gallery-overlay">
+<h3>ESPACIOS FITNESS</h3>
+<p>Un lugar para construir tu mejor versión.</p>
+</div>
+</div>
+
+</div>
+
+<p style="text-align:center;color:#858596;font-size:10px;margin-top:20px;">
+* Fotografías ilustrativas. Se podrán sustituir por imágenes reales de ZEUS GYM EXCLUSIVE.
+</p>
+
+</section>
+
+<!-- GALERÍA DE VIDEOS -->
+
+<div class="video-section" id="videos">
+
+<div class="video-container">
+
+<div class="section-title">
+<small>ENERGÍA EN MOVIMIENTO</small>
+<h2>GALERÍA DE VIDEOS</h2>
+<p>Conoce más sobre ZEUS GYM EXCLUSIVE a través de nuestros videos.</p>
+</div>
+
+<div class="video-grid">
+
+<div class="video-card">
+
+<div class="video-frame">
+<video controls preload="metadata">
+<source src="video0.mp4" type="video/mp4">
+Tu navegador no puede reproducir este video.
+</video>
+</div>
+
+<div class="video-info">
+<span>01 / ZEUS GYM</span>
+<h3>ENTRENAMIENTO EN ZEUS</h3>
+<p>
+Conoce parte de la experiencia y las actividades de nuestro gimnasio.
+</p>
+</div>
+
+</div>
+
+<div class="video-card">
+
+<div class="video-frame">
+<video controls preload="metadata">
+<source src="video2.mp4" type="video/mp4">
+Tu navegador no puede reproducir este video.
+</video>
+</div>
+
+<div class="video-info">
+<span>02 / ZEUS GYM</span>
+<h3>FUERZA Y SUPERACIÓN</h3>
+<p>
+La disciplina y el esfuerzo forman parte de cada entrenamiento.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- TIKTOK -->
+
+<div class="social-box">
+
+<h3>¡SÍGUENOS EN TIKTOK!</h3>
+
+<p>
+Descubre el contenido de ZEUS GYM EXCLUSIVE:
+entrenamientos, actividades, novedades y mucho más.
+¡Síguenos y forma parte de nuestra comunidad!
+</p>
+
+<a class="btn"
+href="https://www.tiktok.com/@zeus_gym_exclusive?is_from_webapp=1&sender_device=pc"
+target="_blank" rel="noopener">
+VER TIKTOK DE ZEUS GYM
+</a>
+
+</div>
+
+</div>
+</div>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+
+<h3>ZEUS GYM <span>EXCLUSIVE</span></h3>
+
+<p>
+DISCIPLINA · FUERZA · SUPERACIÓN<br>
+Oruro - Bolivia<br><br>
+© 2026 ZEUS GYM EXCLUSIVE. Todos los derechos reservados.
+</p>
+
+</footer>
+
+<!-- VISUALIZADOR DE FOTOGRAFÍAS -->
+
+<div class="lightbox" id="lightbox">
+
+<button class="close-lightbox" id="closeLightbox" aria-label="Cerrar">
+&times;
+</button>
+
+<img id="lightboxImage" src="" alt="Fotografía ampliada">
+
+</div>
+
+<!-- FUNCIONES -->
+
+<script>
+
+// FILTROS DE FOTOGRAFÍAS
+
+const filterButtons = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+filterButtons.forEach(button => {
+
+    button.addEventListener('click', () => {
+
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        galleryItems.forEach(item => {
+
+            if (filter === 'all' || item.dataset.category === filter) {
+                item.classList.remove('hide');
+            } else {
+                item.classList.add('hide');
+            }
+
+        });
+
+    });
+
+});
+
+// AMPLIAR FOTOGRAFÍAS
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const closeLightbox = document.getElementById('closeLightbox');
+
+galleryItems.forEach(item => {
+
+    item.addEventListener('click', () => {
+
+        const image = item.querySelector('img');
+
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+
+        lightbox.classList.add('show');
+
+    });
+
+});
+
+closeLightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+});
+
+lightbox.addEventListener('click', event => {
+
+    if (event.target === lightbox) {
+        lightbox.classList.remove('show');
+    }
+
+});
+
+document.addEventListener('keydown', event => {
+
+    if (event.key === 'Escape') {
+        lightbox.classList.remove('show');
+    }
+
+});
+
+</script>
+
+</body>
+</html>

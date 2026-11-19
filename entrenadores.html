@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrenadores | ZEUS GYM EXCLUSIVE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #080810;
+    --panel: #11111d;
+    --morado: #8b35ff;
+    --rosa: #ed36a7;
+    --cyan: #20d9f5;
+    --blanco: #ffffff;
+    --gris: #a7a7b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,16,.96);
+    border-bottom: 1px solid rgba(139,53,255,.25);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1450px;
+    margin: auto;
+    padding: 13px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    font-size: 10px;
+    font-weight: 700;
+    color: #d0cedb;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+    border-color: var(--morado);
+    background: rgba(139,53,255,.14);
+    box-shadow: 0 0 15px rgba(139,53,255,.18);
+}
+
+.menu-btn {
+    display: none;
+    border: 1px solid var(--morado);
+    background: transparent;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 90px 8%;
+    background:
+    linear-gradient(90deg, rgba(8,8,16,.98) 5%, rgba(8,8,16,.83) 48%, rgba(8,8,16,.30)),
+    url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=2000&q=90') center/cover;
+}
+
+.hero-content {
+    max-width: 780px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid rgba(32,217,245,.5);
+    background: rgba(32,217,245,.08);
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(38px, 6vw, 76px);
+    line-height: 1.12;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--morado), var(--rosa), var(--cyan));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0cedb;
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 630px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 15px 24px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: .3s;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: linear-gradient(100deg, var(--morado), var(--rosa));
+    color: white;
+    box-shadow: 0 7px 25px rgba(139,53,255,.25);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.35);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+/* SECCIONES */
+
+section {
+    padding: 95px 8%;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 55px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    margin: 17px 0;
+}
+
+.section-title h2 span {
+    color: var(--morado);
+}
+
+.section-title p {
+    color: var(--gris);
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+/* PRESENTACION */
+
+.intro {
+    background: #0d0d18;
+}
+
+.intro-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.intro-image {
+    min-height: 410px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(139,53,255,.4);
+}
+
+.intro-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 410px;
+    object-fit: cover;
+    display: block;
+}
+
+.intro-text h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 31px;
+    line-height: 1.35;
+    margin-bottom: 22px;
+}
+
+.intro-text h2 span {
+    color: var(--rosa);
+}
+
+.intro-text p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 17px;
+}
+
+.intro-list {
+    margin-top: 25px;
+    display: grid;
+    gap: 13px;
+}
+
+.intro-list div {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.check {
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--cyan);
+    background: rgba(32,217,245,.12);
+    border: 1px solid rgba(32,217,245,.35);
+}
+
+/* TARJETAS */
+
+.team {
+    background:
+    radial-gradient(circle at 10% 20%, rgba(139,53,255,.09), transparent 35%),
+    var(--fondo);
+}
+
+.team-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.team-card {
+    background: linear-gradient(145deg, #171725, #0d0d17);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: .35s;
+}
+
+.team-card:hover {
+    transform: translateY(-9px);
+    border-color: var(--morado);
+    box-shadow: 0 15px 35px rgba(139,53,255,.15);
+}
+
+.team-photo {
+    height: 245px;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(.8);
+    transition: .5s;
+}
+
+.team-card:hover .team-photo img {
+    transform: scale(1.06);
+}
+
+.team-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(100deg, var(--morado), var(--rosa));
+    padding: 8px 13px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.team-info {
+    padding: 25px;
+}
+
+.team-info small {
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.team-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    margin: 12px 0;
+}
+
+.team-info p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.team-info .status {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 8px 11px;
+    border: 1px solid rgba(237,54,167,.4);
+    border-radius: 5px;
+    color: #f08bc8;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* ACOMPAÑAMIENTO */
+
+.support {
+    background: #10101c;
+}
+
+.support-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.support-card {
+    padding: 35px 27px;
+    background: #171725;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.support-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-6px);
+}
+
+.support-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(139,53,255,.25), rgba(237,54,167,.16));
+    font-size: 27px;
+    margin-bottom: 23px;
+}
+
+.support-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.support-card p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* CTA */
+
+.cta {
+    text-align: center;
+    background:
+    linear-gradient(rgba(8,8,16,.88), rgba(8,8,16,.94)),
+    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.cta h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    margin-bottom: 20px;
+}
+
+.cta h2 span {
+    color: var(--cyan);
+}
+
+.cta p {
+    max-width: 650px;
+    margin: auto;
+    color: #c1bfce;
+    line-height: 1.9;
+    font-size: 13px;
+}
+
+.cta .btn {
+    margin-top: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #05050a;
+    padding: 45px 8% 25px;
+    border-top: 1px solid rgba(139,53,255,.25);
+}
+
+.footer-content {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-brand img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.footer-brand h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+}
+
+.footer-brand p {
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.footer-links a:hover {
+    color: var(--cyan);
+}
+
+.copyright {
+    max-width: 1250px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #777586;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1100px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 9px;
+        font-size: 9px;
+    }
+}
+
+@media(max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 0;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        text-align: center;
+        border: 1px solid rgba(255,255,255,.08);
+        font-size: 11px;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid,
+    .support-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+}
+
+@media(max-width: 560px) {
+    section {
+        padding: 70px 6%;
+    }
+
+    .hero {
+        padding: 75px 6%;
+    }
+
+    .team-grid,
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+
+        <a href="../inicio/index.html" class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+            <div class="logo-text">
+                ZEUS GYM
+                <span>EXCLUSIVE</span>
+            </div>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <nav id="menu">
+            <a href="index.html">INICIO</a>
+            <a href="nosotros.html">NOSOTROS</a>
+            <a href="maquinas.html">MÁQUINAS</a>
+            <a href="disciplinas.html">DISCIPLINAS</a>
+            <a href="entrenadores.html" class="active">ENTRENADORES</a>
+            <a href="membresias.html">MEMBRESÍAS</a>
+            <a href="horarios.html">HORARIOS</a>
+            <a href="galeria.html">GALERÍA</a>
+            <a href="contacto.html">CONTACTO</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <span class="tag">ZEUS TRAINING TEAM</span>
+
+            <h1>
+                TU ESFUERZO.<br>
+                <span>NUESTRA MOTIVACIÓN.</span>
+            </h1>
+
+            <p>
+                Entrenar con orientación y disciplina puede marcar la diferencia.
+                En ZEUS GYM EXCLUSIVE buscamos que cada persona avance hacia
+                sus objetivos físicos mediante una práctica responsable y constante.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#equipo" class="btn btn-primary">CONOCE NUESTRO EQUIPO</a>
+                <a href="contacto.html" class="btn btn-outline">CONTÁCTANOS</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="intro">
+
+        <div class="intro-grid">
+
+            <div class="intro-image">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RNeKjjP7m7SzOxwWVtPxlJ4S-gR1buKebJIdahVuivxPj1yLKKARQnyaIy1GFPSyQ6jxZRfOOAk5A7klR3V7q9OOL5tDMp65t-CnlDjG5Xk08zrf_3NCXGfmYIoQM3QGDSZ_abkMFfSebI=s1360-w1360-h1020-rw" alt="Entrenamiento en gimnasio">
+            </div>
+
+            <div class="intro-text">
+
+                <span class="tag">ENTRENAMIENTO CON PROPÓSITO</span>
+
+                <h2>
+                    CADA OBJETIVO<br>
+                    COMIENZA CON UNA <span>DECISIÓN.</span>
+                </h2>
+
+                <p>
+                    El acompañamiento durante la actividad física permite
+                    desarrollar mejores hábitos, cuidar la técnica y mantener
+                    la motivación a lo largo del proceso.
+                </p>
+
+                <p>
+                    En esta sección presentamos el enfoque de acompañamiento
+                    deportivo de ZEUS GYM EXCLUSIVE. Los datos individuales
+                    del personal se incorporarán cuando sean confirmados por
+                    el establecimiento.
+                </p>
+
+                <div class="intro-list">
+                    <div><span class="check">✓</span> Orientación durante el entrenamiento</div>
+                    <div><span class="check">✓</span> Constancia y disciplina deportiva</div>
+                    <div><span class="check">✓</span> Atención a los objetivos personales</div>
+                    <div><span class="check">✓</span> Ejecución responsable de los ejercicios</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="team" id="equipo">
+
+        <div class="section-title">
+            <small>ZEUS GYM EXCLUSIVE</small>
+            <h2>ÁREA DE <span>ENTRENAMIENTO</span></h2>
+            <p>
+                El trabajo en el gimnasio requiere orientación, compromiso
+                y una actitud constante para alcanzar cada meta.
+            </p>
+        </div>
+
+        <div class="team-grid">
+
+            <article class="team-card">
+                <div class="team-photo">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=850&q=85" alt="Entrenamiento de fuerza">
+                    <span class="team-number">01</span>
+                </div>
+                <div class="team-info">
+                    <small>ÁREA DE MUSCULACIÓN</small>
+                    <h3>Entrenamiento de fuerza</h3>
+                    <p>
+                        Orientación para trabajar los diferentes grupos
+                        musculares mediante ejercicios con máquinas,
+                        pesas y movimientos controlados.
+                    </p>
+                    <span class="status">ÁREA DE ENTRENAMIENTO</span>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-photo">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=850&q=85" alt="Entrenamiento funcional">
+                    <span class="team-number">02</span>
+                </div>
+                <div class="team-info">
+                    <small>ACONDICIONAMIENTO FÍSICO</small>
+                    <h3>Preparación física</h3>
+                    <p>
+                        Trabajo enfocado en desarrollar resistencia,
+                        coordinación, movilidad y condición física
+                        de acuerdo con las capacidades de cada persona.
+                    </p>
+                    <span class="status">ENFOQUE DE PREPARACIÓN</span>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-photo">
+                    <img src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&w=850&q=85" alt="Actividad física">
+                    <span class="team-number">03</span>
+                </div>
+                <div class="team-info">
+                    <small>SEGUIMIENTO DE OBJETIVOS</small>
+                    <h3>Progreso personal</h3>
+                    <p>
+                        La constancia, la técnica adecuada y el seguimiento
+                        de los avances ayudan a construir hábitos
+                        saludables y sostenibles.
+                    </p>
+                    <span class="status">PROGRESO Y CONSTANCIA</span>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="support">
+
+        <div class="section-title">
+            <small>ENTRENAR INTELIGENTEMENTE</small>
+            <h2>EL VALOR DEL <span>ACOMPAÑAMIENTO</span></h2>
+            <p>
+                Cada entrenamiento representa una oportunidad para
+                mejorar, aprender y superar nuevos desafíos.
+            </p>
+        </div>
+
+        <div class="support-grid">
+
+            <article class="support-card">
+                <div class="support-icon">🏋️</div>
+                <h3>Técnica y ejecución</h3>
+                <p>
+                    Realizar los movimientos de forma controlada
+                    contribuye a un entrenamiento más seguro
+                    y eficiente.
+                </p>
+            </article>
+
+            <article class="support-card">
+                <div class="support-icon">🎯</div>
+                <h3>Objetivos personales</h3>
+                <p>
+                    Cada persona tiene metas diferentes.
+                    La planificación permite trabajar con
+                    mayor claridad y organización.
+                </p>
+            </article>
+
+            <article class="support-card">
+                <div class="support-icon">⚡</div>
+                <h3>Motivación constante</h3>
+                <p>
+                    La disciplina y la perseverancia ayudan
+                    a mantener el compromiso con la actividad
+                    física y el bienestar.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="cta">
+
+        <h2>ES MOMENTO DE <span>SUPERAR TUS LÍMITES</span></h2>
+
+        <p>
+            Da el primer paso hacia una vida más activa.
+            Conoce nuestras instalaciones y descubre
+            el espacio donde puedes trabajar por tus objetivos.
+        </p>
+
+        <a href="contacto.html" class="btn btn-primary">
+            VISÍTANOS EN ZEUS GYM
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS">
+            <div>
+                <h3>ZEUS GYM EXCLUSIVE</h3>
+                <p>ENTRENA. SUPÉRATE. EVOLUCIONA.</p>
+            </div>
+        </div>
+
+        
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ZEUS GYM EXCLUSIVE | Todos los derechos reservados.
+    </div>
+
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

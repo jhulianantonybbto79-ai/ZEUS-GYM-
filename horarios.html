@@ -1,0 +1,976 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horarios | ZEUS GYM EXCLUSIVE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --fondo: #080810;
+    --panel: #141421;
+    --morado: #8b35ff;
+    --rosa: #ed36a7;
+    --cyan: #20d9f5;
+    --blanco: #ffffff;
+    --gris: #aaa9b9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--blanco);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,16,.97);
+    border-bottom: 1px solid rgba(139,53,255,.25);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1450px;
+    margin: auto;
+    padding: 13px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 4px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    font-size: 10px;
+    font-weight: 700;
+    color: #d0cedb;
+    padding: 11px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: white;
+    border-color: var(--morado);
+    background: rgba(139,53,255,.14);
+    box-shadow: 0 0 15px rgba(139,53,255,.18);
+}
+
+.menu-btn {
+    display: none;
+    border: 1px solid var(--morado);
+    background: transparent;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 530px;
+    display: flex;
+    align-items: center;
+    padding: 90px 8%;
+    background:
+    linear-gradient(90deg, rgba(8,8,16,.98) 5%, rgba(8,8,16,.80) 55%, rgba(8,8,16,.30)),
+    url('https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RwnIpFu1fZPYoJKrvYN5JX5aOdhbaW8i0_mhkUYwnUVInualmlJIrqkg5krWvQHau6GpMrWn2OS9NckoR2FXzF4BWjhNtLyKrtzA4gEoA85SAkDBEbkkdC7kACP22nV0wNQvK1NVWxlSgv=s1360-w1360-h1020-rw') center/cover;
+}
+
+.hero-content {
+    max-width: 780px;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--cyan);
+    border: 1px solid rgba(32,217,245,.5);
+    background: rgba(32,217,245,.08);
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(38px, 6vw, 73px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, var(--morado), var(--rosa), var(--cyan));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0cedb;
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 620px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 24px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: linear-gradient(100deg, var(--morado), var(--rosa));
+    color: white;
+    box-shadow: 0 7px 25px rgba(139,53,255,.25);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.hero .btn {
+    margin-top: 30px;
+}
+
+/* GENERAL */
+
+section {
+    padding: 90px 8%;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 55px;
+}
+
+.section-title small {
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    margin: 17px 0;
+}
+
+.section-title h2 span {
+    color: var(--morado);
+}
+
+.section-title p {
+    color: var(--gris);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* ATENCION */
+
+.attention {
+    background: #10101c;
+}
+
+.attention-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.attention-card {
+    padding: 32px 25px;
+    text-align: center;
+    background: #191927;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.attention-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--morado);
+}
+
+.attention-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    border-radius: 12px;
+    background: rgba(139,53,255,.17);
+    font-size: 27px;
+}
+
+.attention-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.attention-card p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* HORARIO */
+
+.schedule {
+    background:
+    radial-gradient(circle at 50% 0%, rgba(139,53,255,.12), transparent 40%),
+    var(--fondo);
+}
+
+.schedule-container {
+    max-width: 1150px;
+    margin: auto;
+    overflow-x: auto;
+    border: 1px solid rgba(139,53,255,.35);
+    border-radius: 13px;
+    background: #12121e;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: linear-gradient(100deg, #5520a5, #8b35ff, #c52b99);
+}
+
+th {
+    padding: 20px 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+td {
+    padding: 19px 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    color: #d0cedb;
+    font-size: 12px;
+}
+
+tbody tr:hover {
+    background: rgba(139,53,255,.09);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.day {
+    color: white;
+    font-weight: 800;
+}
+
+.time {
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.closed {
+    color: #f08bc8;
+    font-weight: 800;
+}
+
+.schedule-note {
+    max-width: 1150px;
+    margin: 18px auto 0;
+    color: var(--gris);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* FRANJAS */
+
+.hours {
+    background: #10101c;
+}
+
+.hours-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.hours-card {
+    background: linear-gradient(145deg, #1a1a29, #10101b);
+    border: 1px solid rgba(255,255,255,.09);
+    padding: 35px;
+    border-radius: 13px;
+}
+
+.hours-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    margin-bottom: 22px;
+}
+
+.hours-card h3 span {
+    color: var(--cyan);
+}
+
+.hour-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    font-size: 12px;
+}
+
+.hour-row:last-child {
+    border-bottom: none;
+}
+
+.hour-row span:first-child {
+    color: var(--gris);
+}
+
+.hour-row span:last-child {
+    font-weight: 800;
+    color: white;
+}
+
+/* CONSEJOS */
+
+.tips {
+    background: var(--fondo);
+}
+
+.tips-grid {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.tip-card {
+    padding: 30px 25px;
+    background: #151521;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.tip-card:hover {
+    border-color: var(--cyan);
+    transform: translateY(-5px);
+}
+
+.tip-card .number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    color: var(--morado);
+    margin-bottom: 18px;
+}
+
+.tip-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+
+.tip-card p {
+    color: var(--gris);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* CTA */
+
+.cta {
+    text-align: center;
+    background:
+    linear-gradient(rgba(8,8,16,.90), rgba(8,8,16,.95)),
+    url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.cta h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(27px, 4vw, 43px);
+    margin-bottom: 20px;
+}
+
+.cta h2 span {
+    color: var(--cyan);
+}
+
+.cta p {
+    max-width: 650px;
+    margin: auto;
+    color: #c1bfce;
+    line-height: 1.9;
+    font-size: 13px;
+}
+
+.cta .btn {
+    margin-top: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #05050a;
+    padding: 45px 8% 25px;
+    border-top: 1px solid rgba(139,53,255,.25);
+}
+
+.footer-content {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-brand img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+}
+
+.footer-brand h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+}
+
+.footer-brand p {
+    color: var(--cyan);
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.footer-links a {
+    color: var(--gris);
+    font-size: 11px;
+}
+
+.footer-links a:hover {
+    color: var(--cyan);
+}
+
+.copyright {
+    max-width: 1250px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: #777586;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1100px) {
+    .nav-container {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 9px;
+        font-size: 9px;
+    }
+}
+
+@media(max-width: 850px) {
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 0;
+    }
+
+    nav.show {
+        display: flex;
+    }
+
+    nav a {
+        text-align: center;
+        border: 1px solid rgba(255,255,255,.08);
+        font-size: 11px;
+    }
+
+    .attention-grid,
+    .tips-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 560px) {
+    section {
+        padding: 70px 6%;
+    }
+
+    .hero {
+        padding: 75px 6%;
+        min-height: 490px;
+    }
+
+    .attention-grid,
+    .tips-grid,
+    .hours-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .logo img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo-text {
+        font-size: 14px;
+    }
+
+    .hours-card {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+
+        <a href="../inicio/index.html" class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS GYM">
+            <div class="logo-text">
+                ZEUS GYM
+                <span>EXCLUSIVE</span>
+            </div>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <nav id="menu">
+            <a href="index.html">INICIO</a>
+            <a href="nosotros.html">NOSOTROS</a>
+            <a href="maquinas.html">MÁQUINAS</a>
+            <a href="disciplinas.html">DISCIPLINAS</a>
+            <a href="entrenadores.html">ENTRENADORES</a>
+            <a href="membresias.html">MEMBRESÍAS</a>
+            <a href="horarios.html" class="active">HORARIOS</a>
+            <a href="galeria.html">GALERÍA</a>
+            <a href="contacto.html">CONTACTO</a>
+        </nav>
+
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <span class="tag">ZEUS GYM SCHEDULE</span>
+
+            <h1>
+                ORGANIZA TU TIEMPO.<br>
+                <span>ENTRENA SIN EXCUSAS.</span>
+            </h1>
+
+            <p>
+                Encuentra el momento ideal para entrenar.
+                Consulta nuestros horarios de atención y organiza
+                tu rutina para mantener la constancia y avanzar
+                hacia tus objetivos físicos.
+            </p>
+
+            <a href="#horario-semanal" class="btn btn-primary">
+                CONSULTAR HORARIOS
+            </a>
+
+        </div>
+    </section>
+
+    <section class="attention">
+
+        <div class="section-title">
+            <small>PLANIFICA TU ENTRENAMIENTO</small>
+            <h2>UN HORARIO PARA <span>TUS METAS</span></h2>
+            <p>
+                Organiza tus actividades y encuentra un espacio
+                para incorporar el ejercicio a tu vida diaria.
+            </p>
+        </div>
+
+        <div class="attention-grid">
+
+            <article class="attention-card">
+                <div class="attention-icon">🌅</div>
+                <h3>Turno mañana</h3>
+                <p>
+                    Una alternativa para quienes prefieren
+                    comenzar el día con actividad física
+                    y energía.
+                </p>
+            </article>
+
+            <article class="attention-card">
+                <div class="attention-icon">☀️</div>
+                <h3>Turno tarde</h3>
+                <p>
+                    Una opción para organizar el entrenamiento
+                    después de las actividades de la mañana.
+                </p>
+            </article>
+
+            <article class="attention-card">
+                <div class="attention-icon">🌙</div>
+                <h3>Turno noche</h3>
+                <p>
+                    Ideal para quienes necesitan entrenar
+                    al finalizar sus responsabilidades diarias.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="schedule" id="horario-semanal">
+
+        <div class="section-title">
+            <small>HORARIO SEMANAL</small>
+            <h2>ORGANIZA TU <span>SEMANA</span></h2>
+            <p>
+                Consulta la propuesta de atención semanal
+                de ZEUS GYM EXCLUSIVE.
+            </p>
+        </div>
+
+        <div class="schedule-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>DÍA</th>
+                        <th>MAÑANA</th>
+                        <th>TARDE</th>
+                        <th>NOCHE</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td class="day">LUNES</td>
+                        <td class="time">06:00 - 12:00</td>
+                        <td class="time">14:00 - 18:00</td>
+                        <td class="time">18:00 - 22:00</td>
+                    </tr>
+
+                    <tr>
+                        <td class="day">MARTES</td>
+                        <td class="time">06:00 - 12:00</td>
+                        <td class="time">14:00 - 18:00</td>
+                        <td class="time">18:00 - 22:00</td>
+                    </tr>
+
+                    <tr>
+                        <td class="day">MIÉRCOLES</td>
+                        <td class="time">06:00 - 12:00</td>
+                        <td class="time">14:00 - 18:00</td>
+                        <td class="time">18:00 - 22:00</td>
+                    </tr>
+
+                    <tr>
+                        <td class="day">JUEVES</td>
+                        <td class="time">06:00 - 12:00</td>
+                        <td class="time">14:00 - 18:00</td>
+                        <td class="time">18:00 - 22:00</td>
+                    </tr>
+
+                    <tr>
+                        <td class="day">VIERNES</td>
+                        <td class="time">06:00 - 12:00</td>
+                        <td class="time">14:00 - 18:00</td>
+                        <td class="time">18:00 - 22:00</td>
+                    </tr>
+
+                    <tr>
+                        <td class="day">SÁBADO</td>
+                        <td class="time">07:00 - 12:00</td>
+                        <td class="time">14:00 - 18:00</td>
+                        <td class="closed">CERRADO</td>
+                    </tr>
+
+                    <tr>
+                        <td class="day">DOMINGO</td>
+                        <td class="closed" colspan="3">CERRADO</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <p class="schedule-note">
+            * Horarios referenciales elaborados para la demostración
+            de la página web. Los horarios definitivos deben ser
+            confirmados directamente con el gimnasio.
+        </p>
+
+    </section>
+
+    <section class="hours">
+
+        <div class="section-title">
+            <small>HORARIOS DE ATENCIÓN</small>
+            <h2>DETALLES DE <span>APERTURA</span></h2>
+            <p>
+                Una referencia rápida para conocer los turnos
+                de funcionamiento del establecimiento.
+            </p>
+        </div>
+
+        <div class="hours-grid">
+
+            <article class="hours-card">
+                <h3>De lunes a <span>viernes</span></h3>
+
+                <div class="hour-row">
+                    <span>Apertura</span>
+                    <span>06:00</span>
+                </div>
+
+                <div class="hour-row">
+                    <span>Receso</span>
+                    <span>12:00 - 14:00</span>
+                </div>
+
+                <div class="hour-row">
+                    <span>Cierre</span>
+                    <span>22:00</span>
+                </div>
+
+            </article>
+
+            <article class="hours-card">
+                <h3>Fin de <span>semana</span></h3>
+
+                <div class="hour-row">
+                    <span>Sábado</span>
+                    <span>07:00 - 18:00</span>
+                </div>
+
+                <div class="hour-row">
+                    <span>Domingo</span>
+                    <span>CERRADO</span>
+                </div>
+
+                <div class="hour-row">
+                    <span>Atención</span>
+                    <span>Según horario indicado</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="tips">
+
+        <div class="section-title">
+            <small>ANTES DE ENTRENAR</small>
+            <h2>APROVECHA MEJOR TU <span>TIEMPO</span></h2>
+            <p>
+                Algunos consejos sencillos para que cada visita
+                al gimnasio sea productiva.
+            </p>
+        </div>
+
+        <div class="tips-grid">
+
+            <article class="tip-card">
+                <div class="number">01</div>
+                <h3>Planifica tu rutina</h3>
+                <p>
+                    Organiza tus días y establece objetivos
+                    realistas para mantener una frecuencia
+                    constante de entrenamiento.
+                </p>
+            </article>
+
+            <article class="tip-card">
+                <div class="number">02</div>
+                <h3>Llega preparado</h3>
+                <p>
+                    Lleva ropa cómoda, una botella de agua
+                    y los elementos necesarios para realizar
+                    tu actividad física.
+                </p>
+            </article>
+
+            <article class="tip-card">
+                <div class="number">03</div>
+                <h3>Respeta tus descansos</h3>
+                <p>
+                    Mantén una buena recuperación entre
+                    sesiones y evita sobrecargar tu cuerpo.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="cta">
+
+        <h2>HAZ DEL ENTRENAMIENTO <span>UN HÁBITO.</span></h2>
+
+        <p>
+            El mejor horario es aquel que puedes mantener
+            con disciplina. Elige tu momento y comienza
+            a trabajar por tus objetivos.
+        </p>
+
+        <a href="contacto.html" class="btn btn-primary">
+            CONSULTAR INFORMACIÓN
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcIRnK7RKB4etFsi94Zo_b09_AA-6Bt8NqkgI0rNXjIKTZU4MBqnPhLcE&s=10" alt="Logo ZEUS">
+            <div>
+                <h3>ZEUS GYM EXCLUSIVE</h3>
+                <p>ENTRENA. SUPÉRATE. EVOLUCIONA.</p>
+            </div>
+        </div>
+
+       
+
+    </div>
+
+    <div class="copyright">
+        © 2026 ZEUS GYM EXCLUSIVE | Todos los derechos reservados.
+        <br><br>
+        Horarios referenciales sujetos a confirmación.
+    </div>
+
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
